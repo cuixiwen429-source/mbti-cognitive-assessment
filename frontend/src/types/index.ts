@@ -97,3 +97,15 @@ export const TYPE_DESCRIPTIONS: Record<string, string> = {
   ESTP: '企业家 — 精力充沛的行动派，善于把握机会和即兴发挥',
   ESFP: '表演者 — 自发的娱乐家，善于创造快乐和活在当下',
 };
+
+/** 16 MBTI type ideal function stacks — [Se, Si, Ne, Ni, Te, Ti, Fe, Fi] weights 1-4 */
+export const TYPE_FULL_TEMPLATES: Record<string, number[]> = {
+  INTJ: [1, 0, 0, 4, 3, 0, 0, 2],  INTP: [0, 1, 3, 0, 0, 4, 2, 0],
+  INFJ: [1, 0, 0, 4, 0, 2, 3, 0],  INFP: [0, 1, 3, 0, 1, 0, 0, 4],
+  ISTJ: [1, 4, 0, 0, 3, 0, 0, 2],  ISFJ: [1, 4, 0, 0, 0, 2, 3, 0],
+  ISTP: [3, 0, 0, 1, 0, 4, 0, 0],  ISFP: [3, 0, 0, 1, 2, 0, 0, 4],
+  ENTJ: [2, 0, 1, 3, 4, 0, 0, 0],  ENTP: [1, 0, 4, 0, 0, 3, 2, 0],
+  ENFJ: [2, 0, 1, 3, 0, 0, 4, 0],  ENFP: [1, 0, 4, 0, 2, 0, 0, 3],
+  ESTJ: [2, 3, 1, 0, 4, 0, 0, 0],  ESFJ: [2, 3, 1, 0, 0, 0, 4, 0],
+  ESTP: [4, 0, 0, 1, 0, 3, 0, 2],  ESFP: [4, 0, 0, 1, 2, 0, 0, 3],
+};

@@ -3,9 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import { useTestStore } from '../store/testStore';
 import QuestionCard from '../components/QuestionCard';
 import ProgressBar from '../components/ProgressBar';
+import { computeScores, buildFunctionStack, computeTypeMatches, checkQuality, generateWarnings } from '../utils/scoring';
+import questionsData from '../data/questions.json';
 import type { Question } from '../types';
-
-const API_BASE = import.meta.env.VITE_API_BASE || '';
 
 export default function TestPage() {
   const navigate = useNavigate();
@@ -14,7 +14,6 @@ export default function TestPage() {
     questions,
     currentIndex,
     answers,
-    startTime,
     setPhase,
     setQuestions,
     startTest,
@@ -23,18 +22,11 @@ export default function TestPage() {
   } = useTestStore();
 
   useEffect(() => {
-    async function fetchQuestions() {
-      try {
-        const res = await fetch(`${API_BASE}/api/questions`);
-        const data: Question[] = await res.json();
-        setQuestions(data);
-        startTest();
-      } catch (err) {
-        console.error('Failed to fetch questions:', err);
-      }
-    }
     if (phase === 'idle') {
-      fetchQuestions();
+      // Load questions from bundled JSON (no API needed)
+      const qs = (questionsData as any).questions as Question[];
+      setQuestions(qs);
+      startTest();
     }
   }, [phase, setQuestions, startTest]);
 
@@ -55,29 +47,37 @@ export default function TestPage() {
     }
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = () => {
     setPhase('processing');
 
-    try {
-      const duration = startTime
-        ? Math.round((Date.now() - startTime) / 1000)
-        : undefined;
-
+    // Run scoring entirely in the browser
+    setTimeout(() => {
       const allAnswers = useTestStore.getState().answers;
+      const fullQuestions = (questionsData as any).questions;
 
-      const res = await fetch(`${API_BASE}/api/submit`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ answers: allAnswers, duration_seconds: duration }),
+      const scores = computeScores(allAnswers, fullQuestions);
+      const stack = buildFunctionStack(scores);
+      const allMatches = computeTypeMatches(scores);
+      const quality = checkQuality(allAnswers, fullQuestions);
+      const warnings = generateWarnings(quality);
+
+      const bestMatch = allMatches[0];
+      const secondMatch = allMatches[1] || allMatches[0];
+      const resultId = Math.random().toString(36).slice(2, 10);
+
+      setResult({
+        result_id: resultId,
+        function_scores: scores,
+        function_stack: stack,
+        best_match: bestMatch,
+        second_match: secondMatch,
+        all_matches: allMatches,
+        quality,
+        warnings,
       });
 
-      const result = await res.json();
-      setResult(result);
-      navigate(`/result/${result.result_id}`);
-    } catch (err) {
-      console.error('Failed to submit:', err);
-      setPhase('testing');
-    }
+      navigate(`/result/${resultId}`);
+    }, 800); // Brief delay for processing animation
   };
 
   if (phase === 'idle' || questions.length === 0) {

@@ -8,60 +8,22 @@ import QualityReport from '../components/QualityReport';
 import type { AssessmentResult } from '../types';
 import { TYPE_DESCRIPTIONS } from '../types';
 
-const API_BASE = import.meta.env.VITE_API_BASE || '';
-
 export default function ResultPage() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const storeResult = useTestStore((s) => s.result);
   const [result, setResult] = useState<AssessmentResult | null>(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    // Use store result directly (client-side scoring, no API)
     if (storeResult && storeResult.result_id === id) {
       setResult(storeResult);
       setLoading(false);
-      return;
+    } else {
+      // No result in store — redirect to home
+      setLoading(false);
     }
-
-    async function fetchResult() {
-      try {
-        const res = await fetch(`${API_BASE}/api/result/${id}`);
-        if (!res.ok) throw new Error('Result not found');
-        const data = await res.json();
-        setResult({
-          result_id: data.result_id,
-          function_scores: data.function_scores,
-          function_stack: data.function_stack,
-          best_match: {
-            type_code: data.best_match,
-            distance: 0,
-            match_percentage: 0,
-          },
-          second_match: {
-            type_code: data.second_match,
-            distance: 0,
-            match_percentage: 0,
-          },
-          all_matches: [],
-          quality: {
-            consistency_score: data.consistency_score,
-            consistency_warning: data.consistency_score < 0.6,
-            attention_passed: data.attention_passed,
-            attention_failures: 0,
-            social_desirability_score: 0,
-            social_desirability_warning: false,
-          },
-          warnings: [],
-        });
-      } catch (err) {
-        setError('结果未找到');
-      } finally {
-        setLoading(false);
-      }
-    }
-    if (id) fetchResult();
   }, [id, storeResult]);
 
   if (loading) {
@@ -72,15 +34,15 @@ export default function ResultPage() {
     );
   }
 
-  if (error || !result) {
+  if (!result) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center gap-4 bg-surface-alt dark:bg-slate-900">
-        <p className="text-xl text-text-muted dark:text-slate-400">{error || '结果未找到'}</p>
+        <p className="text-xl text-text-muted dark:text-slate-400">结果未找到，请重新测评</p>
         <button
           onClick={() => navigate('/')}
           className="px-6 py-2 bg-primary text-white rounded-xl cursor-pointer hover:bg-primary-dark"
         >
-          返回首页
+          开始测评
         </button>
       </div>
     );

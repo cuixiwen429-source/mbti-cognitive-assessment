@@ -1,0 +1,1021 @@
+{
+  "meta": {
+    "version": "2.0.0",
+    "total_questions": 120,
+    "description": "MBTI Cognitive Function Assessment - Full Question Bank",
+    "language": "zh-CN"
+  },
+  "questions": [
+    {
+      "id": "sjt_01",
+      "text": "你走进一个陌生的会议室，你的第一反应是？",
+      "type": "sjt",
+      "function_tag": null,
+      "options": [
+        {"text": "快速扫视房间布局、光线和颜色", "function_tag": "Se", "weight": 4},
+        {"text": "感觉到这个房间的整体氛围是否舒适", "function_tag": "Ni", "weight": 3},
+        {"text": "回想它是否和你之前去过的某个地方类似", "function_tag": "Si", "weight": 2},
+        {"text": "想象这个空间还可以用来做什么", "function_tag": "Ne", "weight": 2}
+      ]
+    },
+    {
+      "id": "sjt_02",
+      "text": "做重要决定时，你通常更依赖什么？",
+      "type": "sjt",
+      "function_tag": null,
+      "options": [
+        {"text": "用逻辑框架系统性地分析利弊", "function_tag": "Ti", "weight": 4},
+        {"text": "衡量哪个选择能达到最好的实际效果", "function_tag": "Te", "weight": 4},
+        {"text": "考虑这个决定是否符合我内心的价值观", "function_tag": "Fi", "weight": 4},
+        {"text": "考虑这个决定对周围人的影响", "function_tag": "Fe", "weight": 4}
+      ]
+    },
+    {
+      "id": "sjt_03",
+      "text": "团队讨论陷入僵局，每个人的意见都不一样，你会？",
+      "type": "sjt",
+      "function_tag": null,
+      "options": [
+        {"text": "指出大家意见中逻辑矛盾的环节，梳理最自洽的方案", "function_tag": "Ti", "weight": 4},
+        {"text": "提出一个能让大家尽快达成共识的折中方案", "function_tag": "Fe", "weight": 4},
+        {"text": "问大家'我们最初想解决的问题到底是什么？'，重新聚焦本质", "function_tag": "Ni", "weight": 3},
+        {"text": "建议先试试看，从实际操作中找答案", "function_tag": "Se", "weight": 3}
+      ]
+    },
+    {
+      "id": "sjt_04",
+      "text": "学习一个新东西时，你更倾向于？",
+      "type": "sjt",
+      "function_tag": null,
+      "options": [
+        {"text": "从原理和底层逻辑开始，彻底搞懂为什么", "function_tag": "Ti", "weight": 4},
+        {"text": "直接动手尝试，在实践中感受和掌握", "function_tag": "Se", "weight": 4},
+        {"text": "先看别人的经验总结和教程，按部就班地学", "function_tag": "Si", "weight": 3},
+        {"text": "跳跃式浏览，把新知识和已有知识体系关联起来", "function_tag": "Ne", "weight": 3}
+      ]
+    },
+    {
+      "id": "sjt_05",
+      "text": "朋友向你倾诉烦恼，你的第一反应是？",
+      "type": "sjt",
+      "function_tag": null,
+      "options": [
+        {"text": "帮 TA 分析问题的根源，给出具体解决方案", "function_tag": "Te", "weight": 4},
+        {"text": "先让 TA 感受到被理解和支持，安抚情绪", "function_tag": "Fe", "weight": 4},
+        {"text": "分享你自己或别人类似的经历，让 TA 觉得不是一个人", "function_tag": "Si", "weight": 2},
+        {"text": "安静听完，在内心确认如果是自己会怎么做", "function_tag": "Fi", "weight": 3}
+      ]
+    },
+    {
+      "id": "sjt_06",
+      "text": "规划一次旅行，你的风格是？",
+      "type": "sjt",
+      "function_tag": null,
+      "options": [
+        {"text": "详细列出每天的时间表，确保效率最大化", "function_tag": "Te", "weight": 4},
+        {"text": "只定大方向和几个必去点，到了凭感觉决定", "function_tag": "Se", "weight": 4},
+        {"text": "研究各种可能的路线，每条都觉得有趣难以取舍", "function_tag": "Ne", "weight": 3},
+        {"text": "参考之前旅行中觉得好的经验来安排", "function_tag": "Si", "weight": 3}
+      ]
+    },
+    {
+      "id": "sjt_07",
+      "text": "你发现一个大多数人接受的观点存在逻辑漏洞，你会？",
+      "type": "sjt",
+      "function_tag": null,
+      "options": [
+        {"text": "当场指出来，逻辑的正确性比社交礼仪更重要", "function_tag": "Ti", "weight": 4},
+        {"text": "先在心里反复推敲确认，再找合适时机说出来", "function_tag": "Ni", "weight": 3},
+        {"text": "考虑指出后会怎样影响大家的感受和关系", "function_tag": "Fe", "weight": 3},
+        {"text": "找数据和案例来验证你的判断，用事实说话", "function_tag": "Te", "weight": 3}
+      ]
+    },
+    {
+      "id": "sjt_08",
+      "text": "你有一段完全空闲的时间，你会？",
+      "type": "sjt",
+      "function_tag": null,
+      "options": [
+        {"text": "想到什么就去做什么，沉浸当下的体验", "function_tag": "Se", "weight": 4},
+        {"text": "脑中冒出各种想做的新奇事情，兴奋得难以选择", "function_tag": "Ne", "weight": 4},
+        {"text": "做你熟悉且喜欢的事情，享受熟悉的节奏", "function_tag": "Si", "weight": 3},
+        {"text": "安静地回顾和思考最近的一些深层想法", "function_tag": "Ni", "weight": 3}
+      ]
+    },
+    {
+      "id": "sjt_09",
+      "text": "当规则和你的内心价值观冲突时，你会？",
+      "type": "sjt",
+      "function_tag": null,
+      "options": [
+        {"text": "坚持自己的价值观，即使要付出实际代价", "function_tag": "Fi", "weight": 4},
+        {"text": "评估违反规则的后果，理性权衡后决定", "function_tag": "Te", "weight": 3},
+        {"text": "寻找折中办法，尽量不要让任何人失望", "function_tag": "Fe", "weight": 3},
+        {"text": "深入研究这个规则背后的逻辑，理解它为什么存在", "function_tag": "Ti", "weight": 3}
+      ]
+    },
+    {
+      "id": "sjt_10",
+      "text": "有人向你介绍一个全新的概念，你会？",
+      "type": "sjt",
+      "function_tag": null,
+      "options": [
+        {"text": "把它和你已有的知识网络连接，看能挂在哪里产生新想法", "function_tag": "Ne", "weight": 4},
+        {"text": "追问这个概念背后的核心原理和本质", "function_tag": "Ni", "weight": 4},
+        {"text": "想马上找个实际场景应用一下，看是否好用", "function_tag": "Te", "weight": 3},
+        {"text": "回忆你之前是否接触过类似的东西", "function_tag": "Si", "weight": 2}
+      ]
+    },
+
+    {
+      "id": "sjt_11",
+      "text": "参加一个社交活动，你通常会？",
+      "type": "sjt",
+      "function_tag": null,
+      "options": [
+        {"text": "充分享受当下的音乐、美食和现场氛围", "function_tag": "Se", "weight": 4},
+        {"text": "找到一两个有趣的人深入交谈", "function_tag": "Fi", "weight": 3},
+        {"text": "游走于不同人群之间，认识尽量多的人", "function_tag": "Fe", "weight": 3},
+        {"text": "观察和分析人群的互动模式", "function_tag": "Ni", "weight": 2}
+      ]
+    },
+    {
+      "id": "sjt_12",
+      "text": "阅读一本书时，你更看重？",
+      "type": "sjt",
+      "function_tag": null,
+      "options": [
+        {"text": "书中理论和论点的逻辑严密性", "function_tag": "Ti", "weight": 4},
+        {"text": "作者的视角和价值观是否与你共鸣", "function_tag": "Fi", "weight": 4},
+        {"text": "书中信息是否实用、可以直接指导行动", "function_tag": "Te", "weight": 3},
+        {"text": "书中描绘的场景是否让你身临其境", "function_tag": "Se", "weight": 2}
+      ]
+    },
+    {
+      "id": "sjt_13",
+      "text": "遇到一个复杂问题时，你通常？",
+      "type": "sjt",
+      "function_tag": null,
+      "options": [
+        {"text": "将问题拆解为几个子问题，逐个攻破", "function_tag": "Ti", "weight": 4},
+        {"text": "先退一步看看全局，寻找问题的根本模式", "function_tag": "Ni", "weight": 4},
+        {"text": "快速列出几个可能的解决方案并评估可行性", "function_tag": "Te", "weight": 3},
+        {"text": "回忆以前类似的问题是怎么解决的", "function_tag": "Si", "weight": 2}
+      ]
+    },
+    {
+      "id": "sjt_14",
+      "text": "购物时，你的决策方式是？",
+      "type": "sjt",
+      "function_tag": null,
+      "options": [
+        {"text": "看到喜欢的、感觉对了就买", "function_tag": "Se", "weight": 4},
+        {"text": "货比三家，对比参数和性价比后决定", "function_tag": "Te", "weight": 4},
+        {"text": "问朋友推荐和看评价，参考他人的经验", "function_tag": "Fe", "weight": 3},
+        {"text": "买自己之前用过觉得好的品牌和款式", "function_tag": "Si", "weight": 2}
+      ]
+    },
+    {
+      "id": "sjt_15",
+      "text": "写一篇文章或报告时，你的流程是？",
+      "type": "sjt",
+      "function_tag": null,
+      "options": [
+        {"text": "先搭好逻辑框架和目录结构，再填充内容", "function_tag": "Te", "weight": 4},
+        {"text": "想到什么就写什么，让思想自由流动后再整理", "function_tag": "Ne", "weight": 4},
+        {"text": "反复修改措辞，直到每个句子都精确表达你的意思", "function_tag": "Ti", "weight": 3},
+        {"text": "以个人经历和感悟为主线来展开", "function_tag": "Fi", "weight": 2}
+      ]
+    },
+    {
+      "id": "sjt_16",
+      "text": "你发现一个同事最近情绪低落，你会？",
+      "type": "sjt",
+      "function_tag": null,
+      "options": [
+        {"text": "主动关心询问，想办法让 TA 开心起来", "function_tag": "Fe", "weight": 4},
+        {"text": "观察 TA 的行为模式，尝试理解根本原因", "function_tag": "Ni", "weight": 3},
+        {"text": "尊重 TA 的情绪空间，相信 TA 自己能处理好", "function_tag": "Fi", "weight": 3},
+        {"text": "看看能不能帮 TA 分担一些工作任务", "function_tag": "Te", "weight": 2}
+      ]
+    },
+    {
+      "id": "sjt_17",
+      "text": "面对一个截止日期紧迫的任务，你会？",
+      "type": "sjt",
+      "function_tag": null,
+      "options": [
+        {"text": "立即列出任务清单和时间节点，高效执行", "function_tag": "Te", "weight": 4},
+        {"text": "依靠过去的经验，用熟悉的方法快速推进", "function_tag": "Si", "weight": 3},
+        {"text": "脑中快速评估几种不同的处理策略", "function_tag": "Ni", "weight": 3},
+        {"text": "发动身边的人一起协作完成任务", "function_tag": "Fe", "weight": 2}
+      ]
+    },
+    {
+      "id": "sjt_18",
+      "text": "看一部电影时，你最容易被什么打动？",
+      "type": "sjt",
+      "function_tag": null,
+      "options": [
+        {"text": "角色之间真挚的情感互动", "function_tag": "Fe", "weight": 4},
+        {"text": "主角坚守内心信念的勇气", "function_tag": "Fi", "weight": 4},
+        {"text": "巧妙的剧情结构和逻辑反转", "function_tag": "Ti", "weight": 3},
+        {"text": "震撼的视觉效果和音效体验", "function_tag": "Se", "weight": 2}
+      ]
+    },
+    {
+      "id": "sjt_19",
+      "text": "你搬到一个新城市生活，你首先会？",
+      "type": "sjt",
+      "function_tag": null,
+      "options": [
+        {"text": "到处走走逛逛，用双脚和感官熟悉这个城市", "function_tag": "Se", "weight": 4},
+        {"text": "研究地图和攻略，规划好要探索的路线", "function_tag": "Te", "weight": 3},
+        {"text": "寻找和自己有共同兴趣的社群", "function_tag": "Fi", "weight": 3},
+        {"text": "想象在这个城市中可能发生的各种新生活", "function_tag": "Ne", "weight": 2}
+      ]
+    },
+    {
+      "id": "sjt_20",
+      "text": "你精心准备了一个方案被领导否决了，你的反应是？",
+      "type": "sjt",
+      "function_tag": null,
+      "options": [
+        {"text": "重新审视方案中是否存在逻辑或事实上的不足", "function_tag": "Ti", "weight": 4},
+        {"text": "感到失望但很快调整心态，寻找下一个机会", "function_tag": "Fi", "weight": 3},
+        {"text": "询问具体的否决原因，了解领导的评判标准", "function_tag": "Te", "weight": 3},
+        {"text": "从这次经历中总结经验，下次避免同样的问题", "function_tag": "Si", "weight": 2}
+      ]
+    },
+    {
+      "id": "sjt_21",
+      "text": "参加一场头脑风暴，你通常？",
+      "type": "sjt",
+      "function_tag": null,
+      "options": [
+        {"text": "不断蹦出各种天马行空的想法，一个接一个", "function_tag": "Ne", "weight": 4},
+        {"text": "听到别人的想法后，快速判断哪些靠谱哪些不靠谱", "function_tag": "Te", "weight": 3},
+        {"text": "记下所有想法，之后系统性地分类和评估", "function_tag": "Ti", "weight": 3},
+        {"text": "关注大家的互动氛围，确保每个人都有参与感", "function_tag": "Fe", "weight": 2}
+      ]
+    },
+    {
+      "id": "sjt_22",
+      "text": "回顾过去一年，你最看重的是？",
+      "type": "sjt",
+      "function_tag": null,
+      "options": [
+        {"text": "完成了多少具体的目标和任务", "function_tag": "Te", "weight": 4},
+        {"text": "经历了多少难忘的体验和冒险", "function_tag": "Se", "weight": 4},
+        {"text": "内心成长了多少，对自己有了哪些新的认识", "function_tag": "Fi", "weight": 3},
+        {"text": "建立了多少有意义的人际关系", "function_tag": "Fe", "weight": 2}
+      ]
+    },
+    {
+      "id": "sjt_23",
+      "text": "你看到一条新闻说某公司股价暴跌，你的思考路径是？",
+      "type": "sjt",
+      "function_tag": null,
+      "options": [
+        {"text": "分析导致暴跌的多层原因和连锁反应", "function_tag": "Ni", "weight": 4},
+        {"text": "联想这个事件可能对相关行业产生的蝴蝶效应", "function_tag": "Ne", "weight": 3},
+        {"text": "用财务模型推演这家公司的真实价值", "function_tag": "Ti", "weight": 3},
+        {"text": "搜索历史类似事件，看市场之后是怎么走的", "function_tag": "Si", "weight": 2}
+      ]
+    },
+    {
+      "id": "sjt_24",
+      "text": "在小组项目中，你自然而然地承担什么角色？",
+      "type": "sjt",
+      "function_tag": null,
+      "options": [
+        {"text": "项目经理：分配任务、设定时间线、推动进度", "function_tag": "Te", "weight": 4},
+        {"text": "分析师：深入思考问题的本质，提出策略方向", "function_tag": "Ni", "weight": 3},
+        {"text": "关系协调者：确保大家沟通顺畅，气氛融洽", "function_tag": "Fe", "weight": 3},
+        {"text": "创意引擎：不断提出新点子和改进方案", "function_tag": "Ne", "weight": 3}
+      ]
+    },
+    {
+      "id": "sjt_25",
+      "text": "你听到一首让你起鸡皮疙瘩的歌，通常是因为？",
+      "type": "sjt",
+      "function_tag": null,
+      "options": [
+        {"text": "它完美地表达了你内心深处的某种感受", "function_tag": "Fi", "weight": 4},
+        {"text": "它唤起了你某个重要的回忆", "function_tag": "Si", "weight": 3},
+        {"text": "它的编曲和结构精妙绝伦", "function_tag": "Ti", "weight": 2},
+        {"text": "它的旋律和节奏让你身体不由自主地动起来", "function_tag": "Se", "weight": 3}
+      ]
+    },
+    {
+      "id": "sjt_26",
+      "text": "如果要选择一个副业，你更倾向于？",
+      "type": "sjt",
+      "function_tag": null,
+      "options": [
+        {"text": "基于你已有的专业技能做咨询或接单", "function_tag": "Si", "weight": 4},
+        {"text": "尝试一个全新的领域，看看有没有新的可能", "function_tag": "Ne", "weight": 4},
+        {"text": "做一个有明确市场需求的业务，追求收益最大化", "function_tag": "Te", "weight": 3},
+        {"text": "做一件你一直热爱的事情，不在乎赚多少", "function_tag": "Fi", "weight": 3}
+      ]
+    },
+    {
+      "id": "sjt_27",
+      "text": "你和朋友约好时间见面，对方迟到了 20 分钟，你会？",
+      "type": "sjt",
+      "function_tag": null,
+      "options": [
+        {"text": "有点烦躁，你一向看重时间效率", "function_tag": "Te", "weight": 3},
+        {"text": "担心是不是出了什么事，发消息关心一下", "function_tag": "Fe", "weight": 4},
+        {"text": "利用这段时间观察周围的人和环境，自得其乐", "function_tag": "Se", "weight": 3},
+        {"text": "脑中构思和思考最近在琢磨的问题", "function_tag": "Ni", "weight": 2}
+      ]
+    },
+    {
+      "id": "sjt_28",
+      "text": "你觉得一个项目'真正完成'的标志是？",
+      "type": "sjt",
+      "function_tag": null,
+      "options": [
+        {"text": "达到了预设的目标和指标", "function_tag": "Te", "weight": 4},
+        {"text": "每个细节都打磨到你满意的程度", "function_tag": "Ti", "weight": 3},
+        {"text": "所有参与者都感到满意和认可", "function_tag": "Fe", "weight": 3},
+        {"text": "你从中学到了一些有价值的东西", "function_tag": "Fi", "weight": 2}
+      ]
+    },
+    {
+      "id": "sjt_29",
+      "text": "你遇到一个完全听不懂的概念，你的方法是？",
+      "type": "sjt",
+      "function_tag": null,
+      "options": [
+        {"text": "找一个实际的例子或类比来理解它", "function_tag": "Se", "weight": 3},
+        {"text": "把它的定义拆解成更小的部分逐个理解", "function_tag": "Ti", "weight": 4},
+        {"text": "联想到你已经理解的相近概念，建立关联", "function_tag": "Ne", "weight": 3},
+        {"text": "问自己'这个概念本质上在描述什么现象？'", "function_tag": "Ni", "weight": 3}
+      ]
+    },
+    {
+      "id": "sjt_30",
+      "text": "在餐厅点菜时，你通常？",
+      "type": "sjt",
+      "function_tag": null,
+      "options": [
+        {"text": "点你吃过觉得好吃的，不太想冒险", "function_tag": "Si", "weight": 4},
+        {"text": "点看起来最新奇、没吃过的菜", "function_tag": "Ne", "weight": 4},
+        {"text": "快速浏览菜单凭感觉选，选完就不再纠结", "function_tag": "Se", "weight": 3},
+        {"text": "先问服务员推荐，参考他们的意见", "function_tag": "Fe", "weight": 2}
+      ]
+    },
+    {
+      "id": "sjt_31",
+      "text": "你对'成功'的定义更接近？",
+      "type": "sjt",
+      "function_tag": null,
+      "options": [
+        {"text": "活成自己想要的样子，忠于内心", "function_tag": "Fi", "weight": 4},
+        {"text": "对社会或他人产生了积极的影响", "function_tag": "Fe", "weight": 4},
+        {"text": "达成了自己设定的具体目标和里程碑", "function_tag": "Te", "weight": 3},
+        {"text": "在某个领域达到深刻的见解和智慧", "function_tag": "Ni", "weight": 2}
+      ]
+    },
+    {
+      "id": "sjt_32",
+      "text": "你写日记或做笔记时，更像哪种风格？",
+      "type": "sjt",
+      "function_tag": null,
+      "options": [
+        {"text": "记录每天发生的事实和细节", "function_tag": "Si", "weight": 4},
+        {"text": "记录当下的感受和反思", "function_tag": "Fi", "weight": 4},
+        {"text": "用思维导图或结构化列表整理信息", "function_tag": "Te", "weight": 3},
+        {"text": "从一个点发散到各种相关的想法", "function_tag": "Ne", "weight": 3}
+      ]
+    },
+    {
+      "id": "sjt_33",
+      "text": "面对一个道德困境，你的思考方式是？",
+      "type": "sjt",
+      "function_tag": null,
+      "options": [
+        {"text": "遵从自己内心的道德直觉，对错分明", "function_tag": "Fi", "weight": 4},
+        {"text": "考虑不同选择对每方的影响，选择伤害最小的", "function_tag": "Fe", "weight": 4},
+        {"text": "建立一个逻辑框架来分析这个困境的各个方面", "function_tag": "Ti", "weight": 3},
+        {"text": "参考社会规范和过往类似案例的处理方式", "function_tag": "Si", "weight": 2}
+      ]
+    },
+    {
+      "id": "sjt_34",
+      "text": "装修房子时，你更关注？",
+      "type": "sjt",
+      "function_tag": null,
+      "options": [
+        {"text": "整体风格和氛围是否协调一致", "function_tag": "Ni", "weight": 4},
+        {"text": "每个空间的实用功能和动线效率", "function_tag": "Te", "weight": 4},
+        {"text": "家具的材质、触感和视觉美感", "function_tag": "Se", "weight": 3},
+        {"text": "这个空间是否能体现你的个性和品味", "function_tag": "Fi", "weight": 2}
+      ]
+    },
+    {
+      "id": "sjt_35",
+      "text": "玩一个策略游戏时，你的风格是？",
+      "type": "sjt",
+      "function_tag": null,
+      "options": [
+        {"text": "制定长远规划，逐步推进自己的战略", "function_tag": "Ni", "weight": 4},
+        {"text": "分析游戏机制，找到最优解和最高效的打法", "function_tag": "Te", "weight": 4},
+        {"text": "尝试各种不同的策略，享受探索的过程", "function_tag": "Ne", "weight": 3},
+        {"text": "根据当前局面灵活应变，见招拆招", "function_tag": "Se", "weight": 3}
+      ]
+    },
+    {
+      "id": "sjt_36",
+      "text": "你的朋友吵架了来找你评理，你会？",
+      "type": "sjt",
+      "function_tag": null,
+      "options": [
+        {"text": "分别倾听双方的观点，不偏袒任何一方", "function_tag": "Fe", "weight": 4},
+        {"text": "帮他们分析问题的根源在哪，谁在哪个环节出了问题", "function_tag": "Ti", "weight": 4},
+        {"text": "凭直觉感受谁更有道理", "function_tag": "Fi", "weight": 3},
+        {"text": "对比过去他们类似的矛盾是怎么解决的", "function_tag": "Si", "weight": 2}
+      ]
+    },
+    {
+      "id": "sjt_37",
+      "text": "你更欣赏哪一种领导者？",
+      "type": "sjt",
+      "function_tag": null,
+      "options": [
+        {"text": "有清晰的愿景和方向感，能带领团队走向未来", "function_tag": "Ni", "weight": 4},
+        {"text": "执行力强，能把模糊的目标落地为可操作的计划", "function_tag": "Te", "weight": 4},
+        {"text": "善于倾听和凝聚人心，让团队有归属感", "function_tag": "Fe", "weight": 4},
+        {"text": "凭借深厚的专业功底，让人心服口服", "function_tag": "Ti", "weight": 3}
+      ]
+    },
+    {
+      "id": "sjt_38",
+      "text": "你需要做一个演讲，你的准备过程是？",
+      "type": "sjt",
+      "function_tag": null,
+      "options": [
+        {"text": "反复演练，对着镜子练习肢体语言和语调", "function_tag": "Se", "weight": 3},
+        {"text": "搭建一个严密的逻辑框架，确保演讲有说服力", "function_tag": "Te", "weight": 4},
+        {"text": "准备几个精彩的故事和案例来打动听众", "function_tag": "Fe", "weight": 3},
+        {"text": "在脑中过一遍演讲的要点和核心信息", "function_tag": "Ni", "weight": 3}
+      ]
+    },
+    {
+      "id": "sjt_39",
+      "text": "翻看老照片或旧物时，你最容易？",
+      "type": "sjt",
+      "function_tag": null,
+      "options": [
+        {"text": "沉浸在当时的回忆中，感受那个时刻的情感", "function_tag": "Si", "weight": 4},
+        {"text": "感慨时间的流逝和人生的变化", "function_tag": "Fi", "weight": 3},
+        {"text": "注意到照片中的细节，比如当时的穿搭和环境变化", "function_tag": "Se", "weight": 2},
+        {"text": "联想这些经历如何塑造了现在的你", "function_tag": "Ni", "weight": 3}
+      ]
+    },
+    {
+      "id": "sjt_40",
+      "text": "你发现一个很好的做事方法，你会？",
+      "type": "sjt",
+      "function_tag": null,
+      "options": [
+        {"text": "把它写成标准流程，让更多人能按这个方法来", "function_tag": "Te", "weight": 4},
+        {"text": "自己默默用起来，优化自己的工作效率", "function_tag": "Ti", "weight": 3},
+        {"text": "兴奋地分享给身边的人，演示给他们看", "function_tag": "Fe", "weight": 3},
+        {"text": "把这个方法和之前的方法对比，记录优劣", "function_tag": "Si", "weight": 2}
+      ]
+    },
+    {
+      "id": "sjt_41",
+      "text": "你想象中的理想生活更接近？",
+      "type": "sjt",
+      "function_tag": null,
+      "options": [
+        {"text": "每天都在体验新的事物，探索未知的世界", "function_tag": "Ne", "weight": 4},
+        {"text": "有一个安稳舒适的家，过着规律而充实的生活", "function_tag": "Si", "weight": 4},
+        {"text": "做一件有深远意义的事，改变一个领域或群体", "function_tag": "Ni", "weight": 3},
+        {"text": "过着丰富多彩的生活，每天都充满感官享受", "function_tag": "Se", "weight": 3}
+      ]
+    },
+    {
+      "id": "sjt_42",
+      "text": "别人批评你时，你最在意的是？",
+      "type": "sjt",
+      "function_tag": null,
+      "options": [
+        {"text": "批评的内容是否逻辑上和事实上成立", "function_tag": "Ti", "weight": 4},
+        {"text": "批评是否触及了你内心最在意的价值观", "function_tag": "Fi", "weight": 4},
+        {"text": "批评的方式是否尊重了你", "function_tag": "Fe", "weight": 3},
+        {"text": "批评是否指出了一个可以改进的实际问题", "function_tag": "Te", "weight": 2}
+      ]
+    },
+    {
+      "id": "sjt_43",
+      "text": "你需要说服一个人接受你的观点，你会？",
+      "type": "sjt",
+      "function_tag": null,
+      "options": [
+        {"text": "用数据和事实说话，展示客观的证据链", "function_tag": "Te", "weight": 4},
+        {"text": "从对方的角度出发，说明这个观点如何对 TA 有利", "function_tag": "Fe", "weight": 3},
+        {"text": "层层推导，让对方自己得出与你一致的结论", "function_tag": "Ti", "weight": 4},
+        {"text": "讲一个生动的故事或案例，让对方直观地感受到", "function_tag": "Ni", "weight": 3}
+      ]
+    },
+    {
+      "id": "sjt_44",
+      "text": "在一个陌生的社交场合感到尴尬时，你会？",
+      "type": "sjt",
+      "function_tag": null,
+      "options": [
+        {"text": "找一个看起来友善的人开始交谈", "function_tag": "Fe", "weight": 4},
+        {"text": "观察周围的环境和人，找到有趣的地方", "function_tag": "Se", "weight": 3},
+        {"text": "内心告诉自己'放轻松，做自己就好'", "function_tag": "Fi", "weight": 3},
+        {"text": "在心里分析为什么感到尴尬，想通了就好了", "function_tag": "Ti", "weight": 2}
+      ]
+    },
+    {
+      "id": "sjt_45",
+      "text": "你更看重一段友谊中的什么？",
+      "type": "sjt",
+      "function_tag": null,
+      "options": [
+        {"text": "价值观的共鸣和真诚的自我表达", "function_tag": "Fi", "weight": 4},
+        {"text": "相互支持和陪伴，在需要的时候出现", "function_tag": "Fe", "weight": 4},
+        {"text": "共同经历过的难忘时光", "function_tag": "Si", "weight": 3},
+        {"text": "能够进行有深度的思想交流", "function_tag": "Ti", "weight": 2}
+      ]
+    },
+    {
+      "id": "sjt_46",
+      "text": "你对未来的态度是？",
+      "type": "sjt",
+      "function_tag": null,
+      "options": [
+        {"text": "充满各种可能的期待和兴奋感", "function_tag": "Ne", "weight": 4},
+        {"text": "有一个大致的方向和愿景，但保持灵活", "function_tag": "Ni", "weight": 4},
+        {"text": "制定了清晰的规划，并按计划推进", "function_tag": "Te", "weight": 3},
+        {"text": "更关注眼前，未来来了再说", "function_tag": "Se", "weight": 3}
+      ]
+    },
+    {
+      "id": "sjt_47",
+      "text": "你在做一件需要耐心的事，你如何保持动力？",
+      "type": "sjt",
+      "function_tag": null,
+      "options": [
+        {"text": "把它分解成小目标，每完成一个就给自己奖励", "function_tag": "Te", "weight": 4},
+        {"text": "内心确认这件事对你来说是重要的、有意义的", "function_tag": "Fi", "weight": 3},
+        {"text": "用之前成功坚持过的经验鼓励自己", "function_tag": "Si", "weight": 3},
+        {"text": "找有同样目标的人一起，互相督促", "function_tag": "Fe", "weight": 2}
+      ]
+    },
+    {
+      "id": "sjt_48",
+      "text": "面对一个突发状况，你的反应是？",
+      "type": "sjt",
+      "function_tag": null,
+      "options": [
+        {"text": "立刻出手处理，采取行动解决问题", "function_tag": "Se", "weight": 4},
+        {"text": "先快速评估情况，确定最优应对方案", "function_tag": "Te", "weight": 4},
+        {"text": "回想以前有没有遇到过类似情况", "function_tag": "Si", "weight": 3},
+        {"text": "先安抚周围人的情绪", "function_tag": "Fe", "weight": 2}
+      ]
+    },
+    {
+      "id": "sjt_49",
+      "text": "你在社交媒体上的使用习惯更接近？",
+      "type": "sjt",
+      "function_tag": null,
+      "options": [
+        {"text": "浏览有趣的内容和资讯，随手点赞分享", "function_tag": "Ne", "weight": 4},
+        {"text": "主要用于跟朋友保持联系，关注他们的动态", "function_tag": "Fe", "weight": 3},
+        {"text": "不太主动发内容，偶尔分享自己觉得有意义的事", "function_tag": "Fi", "weight": 3},
+        {"text": "关注垂直领域的专业内容，提升自己", "function_tag": "Te", "weight": 2}
+      ]
+    },
+    {
+      "id": "sjt_50",
+      "text": "你更愿意把时间花在？",
+      "type": "sjt",
+      "function_tag": null,
+      "options": [
+        {"text": "获得新的体验和感受", "function_tag": "Se", "weight": 4},
+        {"text": "学习新的知识和技能", "function_tag": "Te", "weight": 3},
+        {"text": "探索新的想法和可能性", "function_tag": "Ne", "weight": 4},
+        {"text": "巩固已有的关系和习惯", "function_tag": "Si", "weight": 3}
+      ]
+    },
+
+    {
+      "id": "likert_se_01",
+      "text": "我对周围环境的细微变化很敏感，比如灯光变暗了一点或房间里有新的气味",
+      "type": "likert", "function_tag": "Se", "is_reversed": false
+    },
+    {
+      "id": "likert_se_02",
+      "text": "比起想象未来的可能性，我更关注当下正在发生的事",
+      "type": "likert", "function_tag": "Se", "is_reversed": false
+    },
+    {
+      "id": "likert_se_03",
+      "text": "我喜欢动手做事情，比如烹饪、手工、运动等亲身体验的活动",
+      "type": "likert", "function_tag": "Se", "is_reversed": false
+    },
+    {
+      "id": "likert_se_04",
+      "text": "看一部电影时，出色的视觉效果和音效比剧情更能吸引我",
+      "type": "likert", "function_tag": "Se", "is_reversed": false
+    },
+    {
+      "id": "likert_se_05",
+      "text": "做决定时，我更倾向于'先试试看再说'",
+      "type": "likert", "function_tag": "Se", "is_reversed": false
+    },
+    {
+      "id": "likert_se_06",
+      "text": "我很难长时间坐着不动思考，总想站起来活动活动",
+      "type": "likert", "function_tag": "Se", "is_reversed": false
+    },
+
+    {
+      "id": "likert_si_01",
+      "text": "做决定时，我常常回忆起过去类似情况的经验作为参考",
+      "type": "likert", "function_tag": "Si", "is_reversed": false
+    },
+    {
+      "id": "likert_si_02",
+      "text": "我不喜欢频繁改变已经形成的生活习惯和工作流程",
+      "type": "likert", "function_tag": "Si", "is_reversed": false
+    },
+    {
+      "id": "likert_si_03",
+      "text": "我会记住很多过去的细节，比如对话的原话、当时的天气等",
+      "type": "likert", "function_tag": "Si", "is_reversed": false
+    },
+    {
+      "id": "likert_si_04",
+      "text": "我倾向于选择已经验证过的、靠谱的方法，而不是尝试新的",
+      "type": "likert", "function_tag": "Si", "is_reversed": false
+    },
+    {
+      "id": "likert_si_05",
+      "text": "我对节日、纪念日和传统仪式比较看重",
+      "type": "likert", "function_tag": "Si", "is_reversed": false
+    },
+    {
+      "id": "likert_si_06",
+      "text": "学习新事物时，我更喜欢有人手把手演示，而不是自己摸索",
+      "type": "likert", "function_tag": "Si", "is_reversed": false
+    },
+
+    {
+      "id": "likert_ne_01",
+      "text": "我经常在做一个项目时，又冒出好几个新项目的想法",
+      "type": "likert", "function_tag": "Ne", "is_reversed": false
+    },
+    {
+      "id": "likert_ne_02",
+      "text": "讨论问题时，我很容易从一个话题联想到另一个看似无关的话题",
+      "type": "likert", "function_tag": "Ne", "is_reversed": false
+    },
+    {
+      "id": "likert_ne_03",
+      "text": "我对新事物充满好奇心，几乎所有没接触过的领域都让我感兴趣",
+      "type": "likert", "function_tag": "Ne", "is_reversed": false
+    },
+    {
+      "id": "likert_ne_04",
+      "text": "我更喜欢开放式的问题，而非有标准答案的问题",
+      "type": "likert", "function_tag": "Ne", "is_reversed": false
+    },
+    {
+      "id": "likert_ne_05",
+      "text": "我经常被朋友说'思维太跳跃了'",
+      "type": "likert", "function_tag": "Ne", "is_reversed": false
+    },
+    {
+      "id": "likert_ne_06",
+      "text": "比起深耕一个领域，我更享受跨领域探索的快感",
+      "type": "likert", "function_tag": "Ne", "is_reversed": false
+    },
+
+    {
+      "id": "likert_ni_01",
+      "text": "我常常突然'灵光一闪'，理解了事物之间的深层联系",
+      "type": "likert", "function_tag": "Ni", "is_reversed": false
+    },
+    {
+      "id": "likert_ni_02",
+      "text": "比起大量收集信息，我更倾向于从少量信息中洞察本质",
+      "type": "likert", "function_tag": "Ni", "is_reversed": false
+    },
+    {
+      "id": "likert_ni_03",
+      "text": "我经常在脑中预演未来可能发生的情景",
+      "type": "likert", "function_tag": "Ni", "is_reversed": false
+    },
+    {
+      "id": "likert_ni_04",
+      "text": "我对符号、隐喻和象征意义很敏感",
+      "type": "likert", "function_tag": "Ni", "is_reversed": false
+    },
+    {
+      "id": "likert_ni_05",
+      "text": "遇到一个新问题时，我更喜欢先花时间深入理解它，而不是马上去解决",
+      "type": "likert", "function_tag": "Ni", "is_reversed": false
+    },
+    {
+      "id": "likert_ni_06",
+      "text": "相比感官体验，我更享受深入的思考和洞察带来的满足感",
+      "type": "likert", "function_tag": "Ni", "is_reversed": false
+    },
+
+    {
+      "id": "likert_te_01",
+      "text": "我善于组织和管理任务，确保事情有条不紊地推进",
+      "type": "likert", "function_tag": "Te", "is_reversed": false
+    },
+    {
+      "id": "likert_te_02",
+      "text": "在团队中，我自然地会站出来分配任务和推进进度",
+      "type": "likert", "function_tag": "Te", "is_reversed": false
+    },
+    {
+      "id": "likert_te_03",
+      "text": "我倾向于用客观指标（数字、KPI、时间节点）来衡量成功",
+      "type": "likert", "function_tag": "Te", "is_reversed": false
+    },
+    {
+      "id": "likert_te_04",
+      "text": "比起讨论'为什么'，我更关心'怎么做'和'什么时候做完'",
+      "type": "likert", "function_tag": "Te", "is_reversed": false
+    },
+    {
+      "id": "likert_te_05",
+      "text": "杂乱无章的环境或流程会让我感到烦躁",
+      "type": "likert", "function_tag": "Te", "is_reversed": false
+    },
+    {
+      "id": "likert_te_06",
+      "text": "我看到一个低效的流程时，第一反应是想办法优化它",
+      "type": "likert", "function_tag": "Te", "is_reversed": false
+    },
+
+    {
+      "id": "likert_ti_01",
+      "text": "我需要完全理解一件事背后的原理，而不只是知道怎么做",
+      "type": "likert", "function_tag": "Ti", "is_reversed": false
+    },
+    {
+      "id": "likert_ti_02",
+      "text": "我会反复推敲自己的想法，确保它们在逻辑上没有自相矛盾",
+      "type": "likert", "function_tag": "Ti", "is_reversed": false
+    },
+    {
+      "id": "likert_ti_03",
+      "text": "我不满足于知道'是什么'，我一定要搞清楚'为什么'",
+      "type": "likert", "function_tag": "Ti", "is_reversed": false
+    },
+    {
+      "id": "likert_ti_04",
+      "text": "在讨论中，我更关注论点的逻辑性，而不是说话者的身份或语气",
+      "type": "likert", "function_tag": "Ti", "is_reversed": false
+    },
+    {
+      "id": "likert_ti_05",
+      "text": "我喜欢对事物进行精确的定义和分类",
+      "type": "likert", "function_tag": "Ti", "is_reversed": false
+    },
+    {
+      "id": "likert_ti_06",
+      "text": "别人的观点和情绪不太会影响我对事实的判断",
+      "type": "likert", "function_tag": "Ti", "is_reversed": false
+    },
+
+    {
+      "id": "likert_fe_01",
+      "text": "我很容易感知到周围人的情绪变化，即使他们没有说出来",
+      "type": "likert", "function_tag": "Fe", "is_reversed": false
+    },
+    {
+      "id": "likert_fe_02",
+      "text": "维护团队的和睦氛围比表达不同意见更重要",
+      "type": "likert", "function_tag": "Fe", "is_reversed": false
+    },
+    {
+      "id": "likert_fe_03",
+      "text": "看到别人尴尬或难堪时，我也会感到不舒服",
+      "type": "likert", "function_tag": "Fe", "is_reversed": false
+    },
+    {
+      "id": "likert_fe_04",
+      "text": "我经常不自觉地调整自己的行为来适应周围人的情绪状态",
+      "type": "likert", "function_tag": "Fe", "is_reversed": false
+    },
+    {
+      "id": "likert_fe_05",
+      "text": "我享受帮助他人解决问题，这会让我有满足感",
+      "type": "likert", "function_tag": "Fe", "is_reversed": false
+    },
+    {
+      "id": "likert_fe_06",
+      "text": "我在群体中经常扮演'润滑剂'的角色",
+      "type": "likert", "function_tag": "Fe", "is_reversed": false
+    },
+
+    {
+      "id": "likert_fi_01",
+      "text": "我有一个清晰的内心价值观体系，很多事情我凭这个就知道对不对",
+      "type": "likert", "function_tag": "Fi", "is_reversed": false
+    },
+    {
+      "id": "likert_fi_02",
+      "text": "我宁愿自己独处思考，也不愿意为了合群而参与不喜欢的话题",
+      "type": "likert", "function_tag": "Fi", "is_reversed": false
+    },
+    {
+      "id": "likert_fi_03",
+      "text": "每天有足够的独处时间对我很重要",
+      "type": "likert", "function_tag": "Fi", "is_reversed": false
+    },
+    {
+      "id": "likert_fi_04",
+      "text": "我很难做违背自己价值观的事情，即使大家都这样做",
+      "type": "likert", "function_tag": "Fi", "is_reversed": false
+    },
+    {
+      "id": "likert_fi_05",
+      "text": "一首歌或一部电影让我感动流泪时，我不太想让别人看到",
+      "type": "likert", "function_tag": "Fi", "is_reversed": false
+    },
+    {
+      "id": "likert_fi_06",
+      "text": "我花很多时间思考和探索'我是谁、我想要什么'",
+      "type": "likert", "function_tag": "Fi", "is_reversed": false
+    },
+
+    {
+      "id": "fc_01",
+      "text": "以下哪项更符合你？",
+      "type": "forced_choice", "function_tag": null,
+      "options": [
+        {"text": "我更看重做事的效率和结果", "function_tag": "Te"},
+        {"text": "我更看重做事的精确性和自洽性", "function_tag": "Ti"}
+      ]
+    },
+    {
+      "id": "fc_02",
+      "text": "以下哪项更符合你？",
+      "type": "forced_choice", "function_tag": null,
+      "options": [
+        {"text": "我更相信自己的亲身体验", "function_tag": "Se"},
+        {"text": "我更相信自己的直觉洞察", "function_tag": "Ni"}
+      ]
+    },
+    {
+      "id": "fc_03",
+      "text": "以下哪项更符合你？",
+      "type": "forced_choice", "function_tag": null,
+      "options": [
+        {"text": "我更享受探索未知的可能性", "function_tag": "Ne"},
+        {"text": "我更享受回顾和重温美好的记忆", "function_tag": "Si"}
+      ]
+    },
+    {
+      "id": "fc_04",
+      "text": "以下哪项更符合你？",
+      "type": "forced_choice", "function_tag": null,
+      "options": [
+        {"text": "做一个公正的人对我来说最重要", "function_tag": "Ti"},
+        {"text": "做一个善良的人对我来说最重要", "function_tag": "Fe"}
+      ]
+    },
+    {
+      "id": "fc_05",
+      "text": "以下哪项更符合你？",
+      "type": "forced_choice", "function_tag": null,
+      "options": [
+        {"text": "我更在意'这件事是否正确'", "function_tag": "Ti"},
+        {"text": "我更在意'这件事是否有意义'", "function_tag": "Fi"}
+      ]
+    },
+    {
+      "id": "fc_06",
+      "text": "以下哪项更符合你？",
+      "type": "forced_choice", "function_tag": null,
+      "options": [
+        {"text": "我更喜欢有条不紊的计划", "function_tag": "Te"},
+        {"text": "我更喜欢随机应变的灵活", "function_tag": "Se"}
+      ]
+    },
+    {
+      "id": "fc_07",
+      "text": "以下哪项更符合你？",
+      "type": "forced_choice", "function_tag": null,
+      "options": [
+        {"text": "我更容易被逻辑和事实说服", "function_tag": "Te"},
+        {"text": "我更容易被情感和故事打动", "function_tag": "Fe"}
+      ]
+    },
+    {
+      "id": "fc_08",
+      "text": "以下哪项更符合你？",
+      "type": "forced_choice", "function_tag": null,
+      "options": [
+        {"text": "独自消化情绪是我的默认模式", "function_tag": "Fi"},
+        {"text": "找人倾诉是我的默认模式", "function_tag": "Fe"}
+      ]
+    },
+
+    {
+      "id": "attn_01",
+      "text": "这是一道注意力检测题，请选择'完全不符合'（最左侧选项）",
+      "type": "attention", "expected_value": 1, "function_tag": null
+    },
+    {
+      "id": "attn_02",
+      "text": "请选择'完全符合'（最右侧选项）来确认你在认真作答",
+      "type": "attention", "expected_value": 7, "function_tag": null
+    },
+    {
+      "id": "attn_03",
+      "text": "本题请选择中间选项",
+      "type": "attention", "expected_value": 4, "function_tag": null
+    },
+    {
+      "id": "attn_04",
+      "text": "如果你在认真阅读，请选择第 2 个选项",
+      "type": "attention", "expected_value": 2, "function_tag": null
+    },
+
+    {
+      "id": "sd_01",
+      "text": "我从来不会在背后议论别人",
+      "type": "social_desirability", "function_tag": null
+    },
+    {
+      "id": "sd_02",
+      "text": "我做任何决定都不会受到他人看法的影响",
+      "type": "social_desirability", "function_tag": null
+    },
+    {
+      "id": "sd_03",
+      "text": "我从来没有对任何人说过谎",
+      "type": "social_desirability", "function_tag": null
+    },
+    {
+      "id": "sd_04",
+      "text": "我对所有人都一视同仁，没有任何偏见",
+      "type": "social_desirability", "function_tag": null
+    },
+    {
+      "id": "sd_05",
+      "text": "我每次犯错后都会立刻承认并道歉",
+      "type": "social_desirability", "function_tag": null
+    },
+    {
+      "id": "sd_06",
+      "text": "我完全不关心别人怎么看我",
+      "type": "social_desirability", "function_tag": null
+    },
+
+    {
+      "id": "con_01a",
+      "text": "我经常在脑中反复推敲自己的想法",
+      "type": "likert", "function_tag": "Ti", "is_reversed": false,
+      "consistency_pair_id": "c1"
+    },
+    {
+      "id": "con_01b",
+      "text": "我的思维过程通常是不断自我审视和修正的",
+      "type": "likert", "function_tag": "Ti", "is_reversed": false,
+      "consistency_pair_id": "c1"
+    },
+    {
+      "id": "con_02a",
+      "text": "在社交场合中，我经常主动照顾他人的感受",
+      "type": "likert", "function_tag": "Fe", "is_reversed": false,
+      "consistency_pair_id": "c2"
+    },
+    {
+      "id": "con_02b",
+      "text": "我很容易感知并回应周围人的情绪需求",
+      "type": "likert", "function_tag": "Fe", "is_reversed": false,
+      "consistency_pair_id": "c2"
+    },
+    {
+      "id": "con_03a",
+      "text": "我喜欢尝试没有做过的新鲜事",
+      "type": "likert", "function_tag": "Se", "is_reversed": false,
+      "consistency_pair_id": "c3"
+    },
+    {
+      "id": "con_03b",
+      "text": "新的体验比熟悉的体验更让我兴奋",
+      "type": "likert", "function_tag": "Se", "is_reversed": false,
+      "consistency_pair_id": "c3"
+    }
+  ]
+}
