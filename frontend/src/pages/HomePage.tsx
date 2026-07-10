@@ -1,9 +1,17 @@
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTestStore } from '../store/testStore';
+import { TYPE_DESCRIPTIONS, FUNC_LABELS } from '../types';
 
 export default function HomePage() {
   const navigate = useNavigate();
   const reset = useTestStore((s) => s.reset);
+  const history = useTestStore((s) => s.history);
+  const loadHistoryFromStorage = useTestStore((s) => s.loadHistoryFromStorage);
+
+  useEffect(() => {
+    loadHistoryFromStorage();
+  }, [loadHistoryFromStorage]);
 
   const handleStart = () => {
     reset();
@@ -11,7 +19,7 @@ export default function HomePage() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center px-5 py-12 sm:py-16">
+    <div className="min-h-screen flex flex-col items-center justify-center px-5 py-10 sm:py-16">
       <div className="text-center max-w-2xl mx-auto w-full">
         <h1 className="text-3xl sm:text-5xl font-bold tracking-tight text-text dark:text-slate-100 mb-3 sm:mb-4">
           认知功能人格测评
@@ -24,7 +32,7 @@ export default function HomePage() {
         </p>
 
         {/* Comparison table */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-6 mb-10 sm:mb-12 text-left">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-6 mb-8 sm:mb-10 text-left">
           <div className="bg-surface dark:bg-slate-800 rounded-xl p-4 sm:p-5 border border-gray-200 dark:border-slate-700">
             <h3 className="text-xs sm:text-sm font-semibold text-text-muted dark:text-slate-400 uppercase mb-2 sm:mb-3 tracking-wider">
               传统 MBTI 测试
@@ -72,6 +80,72 @@ export default function HomePage() {
             </ul>
           </div>
         </div>
+
+        {/* History section */}
+        {history.length > 0 && (
+          <div className="mb-8 text-left">
+            <div className="flex items-center justify-between mb-3">
+              <h2 className="text-sm sm:text-base font-semibold text-text dark:text-slate-200">
+                历史测评记录
+              </h2>
+              <button
+                onClick={() => navigate('/history')}
+                className="text-xs text-primary dark:text-indigo-400 hover:underline cursor-pointer"
+              >
+                查看全部 →
+              </button>
+            </div>
+
+            <div className="space-y-2">
+              {history.slice(0, 3).map((entry) => {
+                const best = entry.result.best_match;
+                const date = new Date(entry.createdAt);
+                const dateStr = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+                return (
+                  <button
+                    key={entry.id}
+                    onClick={() => navigate(`/result/${entry.id}`)}
+                    className="w-full bg-surface dark:bg-slate-800 rounded-xl p-3 sm:p-4 border border-gray-100 dark:border-slate-700
+                               hover:border-primary/30 dark:hover:border-indigo-500/30 hover:shadow-sm
+                               transition-all text-left cursor-pointer"
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="text-left shrink-0">
+                        <div className="font-bold text-sm sm:text-base text-text dark:text-slate-100">
+                          {best.type_code}
+                        </div>
+                        <div className="text-[10px] text-text-muted dark:text-slate-500">
+                          {dateStr}
+                        </div>
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="text-[11px] sm:text-xs text-text-muted dark:text-slate-400 truncate">
+                          {TYPE_DESCRIPTIONS[best.type_code]?.split(' — ')[0] || ''}
+                        </div>
+                        <div className="flex gap-1 mt-0.5 flex-wrap">
+                          {entry.result.function_stack.slice(0, 3).map((f) => (
+                            <span key={f} className="text-[10px] px-1.5 py-0.5 rounded bg-gray-100 dark:bg-slate-700 text-text-muted dark:text-slate-400">
+                              {FUNC_LABELS[f]}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                      <div className="text-right shrink-0">
+                        <div className="font-bold text-sm text-primary dark:text-indigo-400">
+                          {best.match_percentage}%
+                        </div>
+                        <div className="text-[10px] text-text-muted dark:text-slate-500">匹配</div>
+                      </div>
+                      <svg className="w-4 h-4 text-gray-300 dark:text-slate-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        )}
 
         <button
           onClick={handleStart}
