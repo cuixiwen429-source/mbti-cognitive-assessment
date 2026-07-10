@@ -13,6 +13,8 @@ interface StorySceneProps {
   onPrev: () => void;
   isFirstDecision: boolean;
   isLastDecision: boolean;
+  /** True when this is the last decision of a non-ending chapter */
+  isChapterLast?: boolean;
 }
 
 export default function StoryScene({
@@ -27,6 +29,7 @@ export default function StoryScene({
   onPrev,
   isFirstDecision,
   isLastDecision,
+  isChapterLast,
 }: StorySceneProps) {
   const [showScene, setShowScene] = useState(false);
   const [showOptions, setShowOptions] = useState(false);
@@ -51,13 +54,12 @@ export default function StoryScene({
     if (isAnswered) return;
     setSelectedOption(optIdx);
     onAnswer(decision.id, optIdx);
-    // Brief delay before advancing
-    setTimeout(() => {
-      if (!isLastDecision) {
-        onNext();
-      }
-    }, 500);
-  }, [decision.id, isAnswered, isLastDecision, onAnswer, onNext]);
+    // Auto-advance unless it's the last decision of the chapter (ending or not)
+    const isChapterEnd = isLastDecision || isChapterLast;
+    if (!isChapterEnd) {
+      setTimeout(() => onNext(), 500);
+    }
+  }, [decision.id, isAnswered, isLastDecision, isChapterLast, onAnswer, onNext]);
 
   const globalProgress = ((globalDecisionIndex + 1) / totalGlobalDecisions) * 100;
 
@@ -123,9 +125,11 @@ export default function StoryScene({
             <p className="text-xs sm:text-sm text-white/60 leading-relaxed mb-3">
               {decision.context}
             </p>
-            <p className="text-base sm:text-lg text-white/90 font-medium leading-relaxed">
-              {decision.question}
-            </p>
+            {decision.question && (
+              <p className="text-base sm:text-lg text-white/90 font-medium leading-relaxed">
+                {decision.question}
+              </p>
+            )}
           </div>
 
           {/* Options */}
@@ -159,11 +163,6 @@ export default function StoryScene({
                       <p className={`text-sm sm:text-base leading-snug ${isSelected ? 'text-white' : 'text-white/80'}`}>
                         {opt.text}
                       </p>
-                      {opt.subtext && (
-                        <p className={`text-[11px] sm:text-xs mt-1 ${isSelected ? 'text-white/50' : 'text-white/35'}`}>
-                          {opt.subtext}
-                        </p>
-                      )}
                     </div>
                     {isSelected && (
                       <svg className="w-5 h-5 text-white/60 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -203,11 +202,21 @@ export default function StoryScene({
               className="text-xs sm:text-sm px-4 py-2 rounded-xl bg-white/10 text-white/80
                          hover:bg-white/20 transition-colors cursor-pointer font-medium"
             >
+              查看结局 →
+            </button>
+          )}
+
+          {isChapterLast && !isLastDecision && isAnswered && (
+            <button
+              onClick={onNext}
+              className="text-xs sm:text-sm px-4 py-2 rounded-xl bg-white/10 text-white/80
+                         hover:bg-white/20 transition-colors cursor-pointer font-medium"
+            >
               完成本章 →
             </button>
           )}
 
-          {!isLastDecision && isAnswered && (
+          {!isLastDecision && !isChapterLast && isAnswered && (
             <span className="text-[10px] sm:text-xs text-white/30">自动跳转中...</span>
           )}
         </div>

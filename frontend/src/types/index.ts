@@ -198,7 +198,6 @@ export const STACK_COLORS = ['bg-primary', 'bg-emerald-500', 'bg-amber-500', 'bg
 
 export interface StoryOption {
   text: string;
-  subtext?: string;
   functions: Partial<FunctionScores>;
 }
 
@@ -217,6 +216,13 @@ export interface StoryChapter {
   gradient: string;
   icon: string;
   decisions: StoryDecision[];
+  /** Branch type — which cognitive dimension triggers branching after this chapter */
+  branchType?: 'perceiving' | 'judging';
+  /** Whether this is a final ending chapter */
+  isEnding?: boolean;
+  /** Human-readable label for the ending type */
+  endingLabel?: string;
+  /** Attention check config (unchanged) */
   hasAttentionCheck?: boolean;
   attentionExpectedOption?: number;
   attentionDecisionIndex?: number;

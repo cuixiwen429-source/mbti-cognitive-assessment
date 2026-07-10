@@ -1,38 +1,34 @@
-import { useEffect, useState, useMemo, useCallback } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTestStore } from '../store/testStore';
 import StoryScene from '../components/StoryScene';
-import { scoreStoryAnswers, checkStoryQuality } from '../utils/storyScoring';
+import { scoreStoryAnswers, checkStoryQuality, resolveNextChapter } from '../utils/storyScoring';
 import { buildFunctionStack, computeTypeMatches, generateWarnings } from '../utils/scoring';
 import { STORY_CHAPTERS } from '../data/scenarios';
-import type { StoryAnswer } from '../types';
+import type { StoryAnswer, StoryChapter } from '../types';
+
+/** Find a chapter by ID */
+function findChapter(id: number): StoryChapter {
+  return STORY_CHAPTERS.find((c) => c.id === id)!;
+}
 
 export default function TestPage() {
   const navigate = useNavigate();
   const { phase, setPhase, setResult, startTest } = useTestStore();
 
-  // Flatten all decisions into a single array with chapter context
-  const allDecisions = useMemo(() => {
-    const flat: { chapterId: number; decisionIndex: number; globalIndex: number }[] = [];
-    let globalIdx = 0;
-    for (const ch of STORY_CHAPTERS) {
-      for (let i = 0; i < ch.decisions.length; i++) {
-        flat.push({ chapterId: ch.id, decisionIndex: i, globalIndex: globalIdx++ });
-      }
-    }
-    return flat;
-  }, []);
-
-  const totalGlobalDecisions = allDecisions.length;
-
-  // State
-  const [currentGlobalIdx, setCurrentGlobalIdx] = useState(0);
+  // Path-based navigation: array of chapter IDs visited
+  const [path, setPath] = useState<number[]>([1]);
+  // Decision index within the current chapter
+  const [decisionIdx, setDecisionIdx] = useState(0);
   const [answers, setAnswers] = useState<StoryAnswer[]>([]);
-  const [chapterTransitions, setChapterTransitions] = useState<number[]>([]);
+  // Track chapter entries for transition animation
+  const [visitedChapters, setVisitedChapters] = useState<Set<number>>(new Set([1]));
+  const [showChapterOverlay, setShowChapterOverlay] = useState(false);
 
-  const current = allDecisions[currentGlobalIdx];
-  const currentChapter = STORY_CHAPTERS.find((ch) => ch.id === current?.chapterId)!;
-  const chapterDecisions = currentChapter?.decisions || [];
+  const currentChapter = findChapter(path[path.length - 1]);
+  const totalGlobalDecisions = 23; // Each path is ~23 decisions
+  // Estimate global progress based on path depth and chapter position
+  const estimatedGlobalIdx = (path.length - 1) * 5 + decisionIdx;
 
   // Start test
   useEffect(() => {
@@ -51,12 +47,18 @@ export default function TestPage() {
     return () => { el.style.overscrollBehavior = prev; };
   }, [phase]);
 
-  // Chapter transition effect
+  // Chapter transition overlay
   useEffect(() => {
-    if (current && !chapterTransitions.includes(current.chapterId)) {
-      setChapterTransitions((prev) => [...prev, current.chapterId]);
+    const currentChapterId = path[path.length - 1];
+    if (!visitedChapters.has(currentChapterId)) {
+      setVisitedChapters((prev) => new Set(prev).add(currentChapterId));
+      if (path.length > 1) {
+        setShowChapterOverlay(true);
+        const timer = setTimeout(() => setShowChapterOverlay(false), 2000);
+        return () => clearTimeout(timer);
+      }
     }
-  }, [current?.chapterId]);
+  }, [path]);
 
   const handleAnswer = useCallback((decisionId: string, optionIndex: number) => {
     setAnswers((prev) => {
@@ -66,18 +68,38 @@ export default function TestPage() {
   }, [currentChapter.id]);
 
   const handleNext = useCallback(() => {
-    if (currentGlobalIdx < totalGlobalDecisions - 1) {
-      setCurrentGlobalIdx((p) => p + 1);
+    if (decisionIdx < currentChapter.decisions.length - 1) {
+      // Advance within current chapter
+      setDecisionIdx((p) => p + 1);
       window.scrollTo({ top: 0 });
+    } else {
+      // Chapter complete — resolve next chapter
+      const nextId = resolveNextChapter(currentChapter, answers);
+      if (nextId === -1) {
+        // Should not happen — ending chapters handled by submit
+        handleSubmit();
+      } else {
+        setPath((p) => [...p, nextId]);
+        setDecisionIdx(0);
+        window.scrollTo({ top: 0 });
+      }
     }
-  }, [currentGlobalIdx, totalGlobalDecisions]);
+  }, [decisionIdx, currentChapter, answers]);
 
   const handlePrev = useCallback(() => {
-    if (currentGlobalIdx > 0) {
-      setCurrentGlobalIdx((p) => p - 1);
+    if (decisionIdx > 0) {
+      // Go back within current chapter
+      setDecisionIdx((p) => p - 1);
+      window.scrollTo({ top: 0 });
+    } else if (path.length > 1) {
+      // Go back to previous chapter's last decision
+      const newPath = path.slice(0, -1);
+      const prevChapter = findChapter(newPath[newPath.length - 1]);
+      setPath(newPath);
+      setDecisionIdx(prevChapter.decisions.length - 1);
       window.scrollTo({ top: 0 });
     }
-  }, [currentGlobalIdx]);
+  }, [decisionIdx, path]);
 
   const handleSubmit = useCallback(() => {
     setPhase('processing');
@@ -130,12 +152,16 @@ export default function TestPage() {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-[#1a0533] via-[#2d1b69] to-[#0f0c29]">
         <div className="text-center px-5">
-          <span className="text-5xl mb-6 block animate-bounce">🗼</span>
+          <span className="text-5xl mb-6 block animate-bounce">
+            {currentChapter?.icon || '🗼'}
+          </span>
           <p className="text-lg sm:text-xl text-white/90 font-medium mb-2">
             正在解读你的旅程...
           </p>
           <p className="text-sm text-white/40">
-            古塔之镜正在显现你的认知模式
+            {currentChapter?.isEnding
+              ? '你的故事已经有了答案'
+              : '古塔之镜正在显现你的认知模式'}
           </p>
           <div className="mt-8 w-32 h-0.5 bg-white/10 rounded-full mx-auto overflow-hidden">
             <div className="h-full bg-white/40 rounded-full animate-pulse" style={{ width: '60%' }} />
@@ -145,32 +171,34 @@ export default function TestPage() {
     );
   }
 
-  // The last decision of the last chapter — show submit
-  const isLastOverall = currentGlobalIdx === totalGlobalDecisions - 1;
-  const lastDecisionAnswered = isLastOverall &&
-    answers.some((a) => a.decisionId === currentChapter.decisions[current.decisionIndex]?.id);
+  const isFirstDecision = path.length === 1 && decisionIdx === 0;
+  const isLastDecision = !!currentChapter.isEnding && decisionIdx === currentChapter.decisions.length - 1;
+  const isChapterLast = decisionIdx === currentChapter.decisions.length - 1;
+  const lastDecisionAnswered = isLastDecision &&
+    answers.some((a) => a.decisionId === currentChapter.decisions[decisionIdx]?.id);
 
   return (
     <div className="min-h-screen bg-slate-950">
       <StoryScene
-        key={`${current.chapterId}-${current.decisionIndex}`}
+        key={`${currentChapter.id}-${decisionIdx}`}
         chapter={currentChapter}
-        decisionIndex={current.decisionIndex}
-        totalDecisions={chapterDecisions.length}
-        globalDecisionIndex={currentGlobalIdx}
+        decisionIndex={decisionIdx}
+        totalDecisions={currentChapter.decisions.length}
+        globalDecisionIndex={estimatedGlobalIdx}
         totalGlobalDecisions={totalGlobalDecisions}
         answers={answers}
         onAnswer={handleAnswer}
-        onNext={lastDecisionAnswered ? handleSubmit : handleNext}
+        onNext={lastDecisionAnswered ? handleSubmit : isChapterLast ? handleNext : handleNext}
         onPrev={handlePrev}
-        isFirstDecision={currentGlobalIdx === 0}
-        isLastDecision={isLastOverall}
+        isFirstDecision={isFirstDecision}
+        isLastDecision={isLastDecision}
+        isChapterLast={isChapterLast && !isLastDecision}
       />
 
       {/* Chapter transition overlay */}
-      {chapterTransitions.length > 1 && current.decisionIndex === 0 && (
-        <div className="fixed inset-0 pointer-events-none z-20 flex items-center justify-center animate-in fade-in duration-500">
-          <div className="text-center animate-in zoom-in-95 duration-700">
+      {showChapterOverlay && (
+        <div className="fixed inset-0 pointer-events-none z-20 flex items-center justify-center">
+          <div className="text-center animate-in fade-in zoom-in-95 duration-700">
             <span className="text-5xl block mb-3">{currentChapter.icon}</span>
             <h2 className="text-2xl sm:text-3xl font-bold text-white">{currentChapter.title}</h2>
             <p className="text-sm text-white/40 mt-1">{currentChapter.subtitle}</p>
