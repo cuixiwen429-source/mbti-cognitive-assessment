@@ -20,9 +20,10 @@ export default function ThemeToggle() {
   return (
     <button
       onClick={() => setDark((d) => !d)}
-      className="fixed top-4 right-4 z-50 w-10 h-10 rounded-xl bg-white dark:bg-slate-800
+      className="fixed top-3 right-3 sm:top-4 sm:right-4 z-50 w-9 h-9 sm:w-10 sm:h-10 rounded-xl
+                 bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm
                  border border-gray-200 dark:border-slate-700 shadow-sm
-                 flex items-center justify-center text-lg
+                 flex items-center justify-center text-base sm:text-lg
                  hover:scale-110 active:scale-95 transition-all cursor-pointer"
       aria-label={dark ? '切换亮色模式' : '切换暗色模式'}
     >
