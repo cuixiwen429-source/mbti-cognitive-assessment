@@ -55,6 +55,98 @@ export interface AssessmentResult {
   warnings: string[];
 }
 
+/* ──────── New types for enhanced result interpretation ──────── */
+
+export type ScoreTier = 'very_low' | 'low' | 'moderate' | 'balanced' | 'high' | 'very_high';
+
+export const SCORE_TIER_LABELS: Record<ScoreTier, string> = {
+  very_low: '较少使用',
+  low: '偶尔使用',
+  moderate: '适度使用',
+  balanced: '均衡运用',
+  high: '经常使用',
+  very_high: '主导使用',
+};
+
+export const SCORE_TIER_COLORS: Record<ScoreTier, string> = {
+  very_low: 'bg-gray-400 text-white',
+  low: 'bg-sky-400 text-white',
+  moderate: 'bg-blue-500 text-white',
+  balanced: 'bg-emerald-500 text-white',
+  high: 'bg-indigo-500 text-white',
+  very_high: 'bg-violet-500 text-white',
+};
+
+export interface FunctionTierInterpretation {
+  overview: string;
+  dailyLife: string;
+  work: string;
+  relationships: string;
+  growth: string;
+}
+
+export interface EnhancedFunctionInfo {
+  code: string;
+  label: string;
+  description: string;
+  score: number;
+  rank: number;
+  tier: ScoreTier;
+  tierLabel: string;
+  interpretation: FunctionTierInterpretation;
+}
+
+export interface TypeDynamicsData {
+  dominantAuxLoop: string;
+  tertiaryTemptation: string;
+  inferiorGrip: string;
+  growthPath: string;
+}
+
+export interface GrowthRecommendation {
+  forLowScore: string;
+  forHighScore: string;
+  exercises: string[];
+}
+
+export interface JobProfile {
+  title: string;
+  category: string;
+  functionRequirements: FunctionScores;
+  confidence: 1 | 2 | 3;
+  sources: string;
+  matchReason: string;
+}
+
+export interface JobMatchResult extends JobProfile {
+  matchScore: number;
+}
+
+export interface HistoryEntry {
+  id: string;
+  createdAt: string;
+  durationSeconds: number;
+  result: AssessmentResult;
+}
+
+export interface PersonalizedResult {
+  functionDetails: EnhancedFunctionInfo[];
+  dominantFunction: string;
+  auxiliaryFunction: string;
+  tertiaryFunction: string;
+  inferiorFunction: string;
+  typeDynamics: TypeDynamicsData;
+  jobMatches: JobMatchResult[];
+  growthForWeakest: { func: string; recommendation: GrowthRecommendation };
+  growthForStrongest: { func: string; recommendation: GrowthRecommendation };
+  communicationStyle: string;
+  decisionStyle: string;
+  learningStyle: string;
+  summary: string;
+}
+
+/* ──────── Constants ──────── */
+
 export const FUNC_NAMES = ['Se', 'Si', 'Ne', 'Ni', 'Te', 'Ti', 'Fe', 'Fi'] as const;
 
 export const FUNC_LABELS: Record<string, string> = {
@@ -97,6 +189,10 @@ export const TYPE_DESCRIPTIONS: Record<string, string> = {
   ESTP: '企业家 — 精力充沛的行动派，善于把握机会和即兴发挥',
   ESFP: '表演者 — 自发的娱乐家，善于创造快乐和活在当下',
 };
+
+/** Stack position labels */
+export const STACK_LABELS = ['主导功能', '辅助功能', '第三功能', '劣势功能'];
+export const STACK_COLORS = ['bg-primary', 'bg-emerald-500', 'bg-amber-500', 'bg-rose-400'];
 
 /** 16 MBTI type ideal function stacks — [Se, Si, Ne, Ni, Te, Ti, Fe, Fi] weights 1-4 */
 export const TYPE_FULL_TEMPLATES: Record<string, number[]> = {

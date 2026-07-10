@@ -91,6 +91,11 @@ export default function TestPage() {
         warnings,
       });
 
+      // Save to localStorage for history
+      setTimeout(() => {
+        useTestStore.getState().saveResult();
+      }, 100);
+
       navigate(`/result/${resultId}`);
     }, 800);
   };

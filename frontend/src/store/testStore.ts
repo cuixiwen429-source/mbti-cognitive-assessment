@@ -1,5 +1,26 @@
 import { create } from 'zustand';
-import type { Question, Answer, AssessmentResult } from '../types';
+import type { Question, Answer, AssessmentResult, HistoryEntry } from '../types';
+
+const HISTORY_STORAGE_KEY = 'mbti_cognitive_history';
+
+function loadHistory(): HistoryEntry[] {
+  try {
+    const raw = localStorage.getItem(HISTORY_STORAGE_KEY);
+    if (!raw) return [];
+    const parsed = JSON.parse(raw);
+    return Array.isArray(parsed) ? parsed : [];
+  } catch {
+    return [];
+  }
+}
+
+function saveHistory(entries: HistoryEntry[]) {
+  try {
+    localStorage.setItem(HISTORY_STORAGE_KEY, JSON.stringify(entries));
+  } catch {
+    // localStorage full or unavailable — silently ignore
+  }
+}
 
 interface TestState {
   // Test lifecycle
@@ -10,6 +31,9 @@ interface TestState {
   result: AssessmentResult | null;
   startTime: number | null;
 
+  // History
+  history: HistoryEntry[];
+
   // Actions
   setPhase: (phase: TestState['phase']) => void;
   setQuestions: (questions: Question[]) => void;
@@ -18,6 +42,12 @@ interface TestState {
   goToQuestion: (index: number) => void;
   setResult: (result: AssessmentResult) => void;
   reset: () => void;
+
+  // History actions
+  saveResult: () => void;
+  loadHistoryFromStorage: () => void;
+  deleteHistory: (id: string) => void;
+  clearHistory: () => void;
 }
 
 export const useTestStore = create<TestState>((set, get) => ({
@@ -27,6 +57,7 @@ export const useTestStore = create<TestState>((set, get) => ({
   answers: [],
   result: null,
   startTime: null,
+  history: [],
 
   setPhase: (phase) => set({ phase }),
   setQuestions: (questions) => set({ questions }),
@@ -59,11 +90,9 @@ export const useTestStore = create<TestState>((set, get) => ({
 
     set({ answers: newAnswers });
 
-    // Auto-advance, or submit if last question
     if (currentIndex < questions.length - 1) {
       set({ currentIndex: currentIndex + 1 });
     }
-    // Don't auto-submit — user clicks "提交" on last question
   },
 
   goToQuestion: (index) => set({ currentIndex: index }),
@@ -79,4 +108,40 @@ export const useTestStore = create<TestState>((set, get) => ({
       result: null,
       startTime: null,
     }),
+
+  /* ── History actions ── */
+  saveResult: () => {
+    const { result, startTime } = get();
+    if (!result) return;
+
+    const entry: HistoryEntry = {
+      id: result.result_id,
+      createdAt: new Date().toISOString(),
+      durationSeconds: startTime ? Math.floor((Date.now() - startTime) / 1000) : 0,
+      result,
+    };
+
+    const history = loadHistory();
+    // Avoid duplicates — replace if same id
+    const filtered = history.filter((e) => e.id !== entry.id);
+    const updated = [entry, ...filtered];
+    saveHistory(updated);
+    set({ history: updated });
+  },
+
+  loadHistoryFromStorage: () => {
+    const history = loadHistory();
+    set({ history });
+  },
+
+  deleteHistory: (id: string) => {
+    const history = loadHistory().filter((e) => e.id !== id);
+    saveHistory(history);
+    set({ history });
+  },
+
+  clearHistory: () => {
+    saveHistory([]);
+    set({ history: [] });
+  },
 }));
