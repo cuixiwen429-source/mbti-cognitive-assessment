@@ -194,6 +194,42 @@ export const TYPE_DESCRIPTIONS: Record<string, string> = {
 export const STACK_LABELS = ['主导功能', '辅助功能', '第三功能', '劣势功能'];
 export const STACK_COLORS = ['bg-primary', 'bg-emerald-500', 'bg-amber-500', 'bg-rose-400'];
 
+/* ──────── Story Mode Types ──────── */
+
+export interface StoryOption {
+  text: string;
+  subtext?: string;
+  functions: Partial<FunctionScores>;
+}
+
+export interface StoryDecision {
+  id: string;
+  context: string;
+  question: string;
+  options: StoryOption[];
+}
+
+export interface StoryChapter {
+  id: number;
+  title: string;
+  subtitle: string;
+  scene: string;
+  gradient: string;
+  icon: string;
+  decisions: StoryDecision[];
+  hasAttentionCheck?: boolean;
+  attentionExpectedOption?: number;
+  attentionDecisionIndex?: number;
+}
+
+export interface StoryAnswer {
+  decisionId: string;
+  selectedOption: number;
+  chapterId: number;
+}
+
+/* ──────── Constants ──────── */
+
 /** 16 MBTI type ideal function stacks — [Se, Si, Ne, Ni, Te, Ti, Fe, Fi] weights 1-4 */
 export const TYPE_FULL_TEMPLATES: Record<string, number[]> = {
   INTJ: [1, 0, 0, 4, 3, 0, 0, 2],  INTP: [0, 1, 3, 0, 0, 4, 2, 0],
