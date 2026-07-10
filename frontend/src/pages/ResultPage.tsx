@@ -128,7 +128,7 @@ export default function ResultPage() {
           <div className="flex items-center justify-center gap-2 sm:gap-3 mt-4">
             <ShareButton resultSummary={summary} />
             <button
-              onClick={() => navigate('/history')}
+              onClick={() => navigate('/legacy/history')}
               className="flex items-center gap-1.5 px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl
                          bg-gray-100 dark:bg-slate-700 text-text dark:text-slate-200
                          hover:bg-gray-200 dark:hover:bg-slate-600

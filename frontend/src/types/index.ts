@@ -247,3 +247,151 @@ export const TYPE_FULL_TEMPLATES: Record<string, number[]> = {
   ESTJ: [2, 3, 1, 0, 4, 0, 0, 0],  ESFJ: [2, 3, 1, 0, 0, 0, 4, 0],
   ESTP: [4, 0, 0, 1, 0, 3, 0, 2],  ESFP: [4, 0, 0, 1, 2, 0, 0, 3],
 };
+
+/* ──────── V2: 《十九点二十分》 ──────── */
+
+export type PreferenceDimension = 'EI' | 'SN' | 'TF' | 'JP';
+export type V2OptionScore = -2 | -1 | 1 | 2;
+export type DimensionBand = 'balanced' | 'leaning' | 'clear';
+export type V2QualityGrade = 'high' | 'medium' | 'low' | 'insufficient';
+export type V2StoryEnding = 'record' | 'pause' | 'walk';
+
+export interface V2VersionSet {
+  assessment: string;
+  itemBank: string;
+  story: string;
+  scoring: string;
+}
+
+export interface V2AssessmentOption {
+  optionId: string;
+  text: string;
+  score?: V2OptionScore;
+  feedback: string;
+}
+
+export interface V2AssessmentItem {
+  id: string;
+  kind: 'scored' | 'attention';
+  context: string;
+  prompt: string;
+  dimension?: PreferenceDimension;
+  options: V2AssessmentOption[];
+  expectedOptionId?: string;
+  consistencyPairId?: string;
+}
+
+export interface V2StoryChapter {
+  id: string;
+  number: number;
+  title: string;
+  subtitle: string;
+  time: string;
+  location: string;
+  scene: string;
+  object: string;
+  clue: string;
+  transition: string;
+  speaker?: string;
+  sceneImage?: string;
+  items: V2AssessmentItem[];
+}
+
+export interface V2FinaleChoice {
+  id: V2StoryEnding;
+  title: string;
+  text: string;
+  endingText: string;
+}
+
+export interface V2Finale {
+  scene: string;
+  prompt: string;
+  choices: V2FinaleChoice[];
+}
+
+export interface V2ConsistencyPair {
+  id: string;
+  itemIds: [string, string];
+  relation: 'same' | 'opposite';
+}
+
+export interface V2AssessmentDefinition {
+  id: string;
+  title: string;
+  version: V2VersionSet;
+  durationMinutes: [number, number];
+  intro: string;
+  chapters: V2StoryChapter[];
+  finale: V2Finale;
+  consistencyPairs?: V2ConsistencyPair[];
+}
+
+export interface V2AssessmentResponse {
+  itemId: string;
+  optionId: string;
+  presentedOptionIds: string[];
+  presentedPosition: number;
+  responseTimeMs: number;
+  chapterId: string;
+  answeredAt: string;
+}
+
+export interface V2StoryState {
+  unlockedClues: string[];
+  feedbackVariants: Record<string, string>;
+  ending?: V2StoryEnding;
+}
+
+export interface V2DimensionResult {
+  dimension: PreferenceDimension;
+  score: number;
+  band: DimensionBand;
+  negativePole: string;
+  positivePole: string;
+}
+
+export interface V2QualityReport {
+  grade: V2QualityGrade;
+  attentionCorrect: number;
+  attentionTotal: number;
+  attentionPassed: boolean;
+  completionRate: number;
+  fastResponseRatio: number;
+  consistencyScore: number | null;
+  validConsistencyPairs: number;
+  flags: string[];
+}
+
+export interface V2AssessmentResult {
+  resultId: string;
+  sessionId: string;
+  version: V2VersionSet;
+  completedAt: string;
+  durationSeconds: number;
+  dimensionScores: Record<PreferenceDimension, V2DimensionResult>;
+  bestFitType: string;
+  candidates: string[];
+  uncertainDimensions: PreferenceDimension[];
+  functionStack: string[];
+  quality: V2QualityReport;
+  ending?: V2StoryEnding;
+}
+
+export interface V2AssessmentDraft {
+  sessionId: string;
+  seed: string;
+  version: V2VersionSet;
+  currentIndex: number;
+  responses: V2AssessmentResponse[];
+  storyState: V2StoryState;
+  startedAt: string;
+  itemStartedAt: string;
+}
+
+export interface V2HistoryEntry {
+  id: string;
+  createdAt: string;
+  result: V2AssessmentResult;
+  responses: V2AssessmentResponse[];
+}

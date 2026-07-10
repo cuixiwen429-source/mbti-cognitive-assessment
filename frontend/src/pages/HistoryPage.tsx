@@ -29,7 +29,7 @@ export default function HistoryPage() {
             : prev,
       );
     } else {
-      navigate(`/result/${entry.id}`);
+      navigate(`/legacy/result/${entry.id}`);
     }
   };
 

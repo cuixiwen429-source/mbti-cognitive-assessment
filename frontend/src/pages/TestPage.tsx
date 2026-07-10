@@ -131,7 +131,7 @@ export default function TestPage() {
         useTestStore.getState().saveResult();
       }, 100);
 
-      navigate(`/result/${resultId}`);
+      navigate(`/legacy/result/${resultId}`);
     }, 1200);
   }, [answers, setPhase, setResult, navigate]);
 
